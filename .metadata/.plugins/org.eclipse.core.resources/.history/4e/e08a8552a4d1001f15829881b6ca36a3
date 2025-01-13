@@ -1,0 +1,6 @@
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Projects/STM32H735G-DK/Applications/USBX/Ux_Host_MSC/Core/Src/main.c:80:5:main	5
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Projects/STM32H735G-DK/Applications/USBX/Ux_Host_MSC/Core/Src/main.c:140:6:SystemClock_Config	4
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Projects/STM32H735G-DK/Applications/USBX/Ux_Host_MSC/Core/Src/main.c:216:1:__io_putchar	1
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Projects/STM32H735G-DK/Applications/USBX/Ux_Host_MSC/Core/Src/main.c:228:6:MPU_Config	1
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Projects/STM32H735G-DK/Applications/USBX/Ux_Host_MSC/Core/Src/main.c:276:6:HAL_TIM_PeriodElapsedCallback	2
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Projects/STM32H735G-DK/Applications/USBX/Ux_Host_MSC/Core/Src/main.c:293:6:Error_Handler	1

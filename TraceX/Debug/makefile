@@ -63,8 +63,8 @@ all: main-build
 main-build: TraceX.elf secondary-outputs
 
 # Tool invocations
-TraceX.elf TraceX.map: $(OBJS) $(USER_OBJS) /home/llagoeiro/STM32CubeIDE/workspace_1.17.0/TraceX/STM32U545RETXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "TraceX.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m33 -T"/home/llagoeiro/STM32CubeIDE/workspace_1.17.0/TraceX/STM32U545RETXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="TraceX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+TraceX.elf TraceX.map: $(OBJS) $(USER_OBJS) C:\Users\lagoeirl\STM32CubeIDE\AzureRTOS-STM32\TraceX\STM32U545RETXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "TraceX.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m33 -T"C:\Users\lagoeirl\STM32CubeIDE\AzureRTOS-STM32\TraceX\STM32U545RETXQ_FLASH.ld" --specs=nosys.specs -Wl,-Map="TraceX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

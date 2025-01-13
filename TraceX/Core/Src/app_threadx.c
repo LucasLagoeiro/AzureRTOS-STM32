@@ -46,12 +46,16 @@
 /* USER CODE BEGIN PV */
 uint8_t thread_stack[THREAD_STACK_SIZE];
 TX_THREAD thread_ptr;
+uint8_t thread_stack2[THREAD_STACK_SIZE];
+TX_THREAD thread_ptr2;
+
 uint8_t __attribute__ ((section(".trace"))) tracex_buffer[TRACEX_BUFFER_SIZE];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN PFP */
 VOID my_thread_entry(ULONG initial_input);
+VOID my_thread_entry2(ULONG initial_input);
 /* USER CODE END PFP */
 
 /**
@@ -66,7 +70,8 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
 
   /* USER CODE END App_ThreadX_MEM_POOL */
   /* USER CODE BEGIN App_ThreadX_Init */
-  tx_thread_create(&thread_ptr,"my_thread",my_thread_entry,0x1234,thread_stack,THREAD_STACK_SIZE,15,15,1,TX_AUTO_START);
+  tx_thread_create(&thread_ptr,"my_thread",my_thread_entry,0x1234,thread_stack,THREAD_STACK_SIZE,15,13,1,TX_AUTO_START);
+  tx_thread_create(&thread_ptr2,"my_thread2",my_thread_entry2,0x1234,thread_stack2,THREAD_STACK_SIZE,14,14,1,TX_AUTO_START);
   tx_trace_enable(&tracex_buffer, TRACEX_BUFFER_SIZE,30);
   /* USER CODE END App_ThreadX_Init */
 
@@ -95,6 +100,15 @@ void MX_ThreadX_Init(void)
 VOID my_thread_entry(ULONG initial_input){
 	while(1){
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		HAL_Delay(500);
+		tx_thread_sleep(20);
+	}
+}
+
+VOID my_thread_entry2(ULONG initial_input){
+	while(1){
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		HAL_Delay(500);
 		tx_thread_sleep(20);
 	}
 }

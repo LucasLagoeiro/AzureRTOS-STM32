@@ -1,0 +1,17 @@
+09:57:19 **** Incremental Build of configuration Debug for project Ux_Host_MSC ****
+make -j8 all 
+arm-none-eabi-gcc "C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Projects/STM32H735G-DK/Applications/USBX/Ux_Host_MSC/FileX/App/app_filex.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DTX_INCLUDE_USER_DEFINE_FILE -DFX_INCLUDE_USER_DEFINE_FILE -DUX_INCLUDE_USER_DEFINE_FILE -DUSE_HAL_DRIVER -DSTM32H735xx -c -I../../Core/Inc -I../../AZURE_RTOS/App -I../../FileX/App -I../../USBX/App -I../../USBX/Target -I../../../../../../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../../../../../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../../../../../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../../../../../../Drivers/CMSIS/Include -I../../../../../../../Middlewares/ST/filex/common/inc/ -I../../../../../../../Middlewares/ST/filex/ports/generic/inc/ -I../../../../../../../Middlewares/ST/usbx/common/usbx_host_classes/inc/ -I../../../../../../../Middlewares/ST/usbx/common/core/inc/ -I../../../../../../../Middlewares/ST/usbx/ports/generic/inc/ -I../../../../../../../Middlewares/ST/usbx/common/usbx_stm32_host_controllers/ -I../../../../../../../Middlewares/ST/threadx/common/inc/ -I../../../../../../../Middlewares/ST/threadx/ports/cortex_m7/gnu/inc/ -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/FileX/App/app_filex.d" -MT"Application/User/FileX/App/app_filex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Application/User/FileX/App/app_filex.o"
+arm-none-eabi-gcc -o "Ux_Host_MSC.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\lagoeirl\STM32Cube\Repository\Packs\STMicroelectronics\X-CUBE-AZRTOS-H7\3.3.0\Projects\STM32H735G-DK\Applications\USBX\Ux_Host_MSC\STM32CubeIDE\STM32H735IGKX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Ux_Host_MSC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Ux_Host_MSC.elf
+ 
+arm-none-eabi-size  Ux_Host_MSC.elf 
+arm-none-eabi-objdump -h -S Ux_Host_MSC.elf  > "Ux_Host_MSC.list"
+   text	   data	    bss	    dec	    hex	filename
+ 122416	    328	  34136	 156880	  264d0	Ux_Host_MSC.elf
+Finished building: default.size.stdout
+ 
+Finished building: Ux_Host_MSC.list
+ 
+
+09:57:25 Build Finished. 0 errors, 0 warnings. (took 6s.575ms)
+

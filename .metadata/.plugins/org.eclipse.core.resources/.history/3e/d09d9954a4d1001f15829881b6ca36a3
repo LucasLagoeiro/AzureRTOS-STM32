@@ -1,0 +1,4 @@
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Middlewares/ST/usbx/common/usbx_stm32_host_controllers/ux_hcd_stm32_request_control_transfer.c:95:7:_ux_hcd_stm32_request_control_transfer	8
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Middlewares/ST/usbx/common/usbx_stm32_host_controllers/ux_hcd_stm32_request_control_transfer.c:341:20:_ux_hcd_stm32_request_control_setup	4
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Middlewares/ST/usbx/common/usbx_stm32_host_controllers/ux_hcd_stm32_request_control_transfer.c:417:20:_ux_hcd_stm32_request_control_data	5
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Middlewares/ST/usbx/common/usbx_stm32_host_controllers/ux_hcd_stm32_request_control_transfer.c:495:20:_ux_hcd_stm32_request_control_status	3

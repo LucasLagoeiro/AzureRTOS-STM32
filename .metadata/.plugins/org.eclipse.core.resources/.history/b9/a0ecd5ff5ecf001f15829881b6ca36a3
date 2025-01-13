@@ -1,0 +1,98 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file    ux_host_cdc_acm.c
+  * @author  MCD Application Team
+  * @brief   USBX Host CDC ACM applicative source file
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2020-2021 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Includes ------------------------------------------------------------------*/
+#include "ux_host_cdc_acm.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "main.h"
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define APP_RX_DATA_SIZE                         1024
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+/* USER CODE BEGIN PV */
+extern UX_HOST_CLASS_CDC_ACM    *cdc_acm;
+extern TX_EVENT_FLAGS_GROUP     cdc_acm_eventflag;
+extern TX_MUTEX                                cdc_acm_uart_mutex;
+UX_HOST_CLASS_CDC_ACM_RECEPTION cdc_acm_reception;
+uint8_t                                                            UserRxBuffer[APP_RX_DATA_SIZE];
+ULONG                           block_reception_count;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+VOID cdc_acm_send_thread_entry(ULONG thread_input)
+{
+          /* Local Variables */
+          UINT status;
+          UCHAR UserTxBuffer[] = "10";
+          ULONG tx_actual_length;
+          uint8_t nibble = 0;
+          /* Infinite Loop */
+          while(1)
+          {
+                    /* Check if the CDC Class is available */
+                    if((cdc_acm != UX_NULL) && (cdc_acm->ux_host_class_cdc_acm_state == UX_HOST_CLASS_INSTANCE_LIVE))
+                    {
+                              /* Start sending data and store it results */
+                              status = _ux_host_class_cdc_acm_write(cdc_acm, &UserTxBuffer[nibble], 1, &tx_actual_length);
+                              tx_mutex_get(&cdc_acm_uart_mutex, TX_WAIT_FOREVER);
+                              if (status == UX_SUCCESS)
+                                        printf("Data sent: %c\r\n", UserTxBuffer[nibble]);
+                              else
+                                        printf("Unable to send data\r\n");
+                              tx_mutex_put(&cdc_acm_uart_mutex);
+                              /* Invert the nibble variable */
+                              nibble ^= 1;
+                              /* Wait 2 seconds for the next transmission */
+                              tx_thread_sleep(200);
+                    }
+                    else
+                    {
+                              tx_thread_sleep(1);
+                    }
+          }
+}
+
+/* USER CODE END 0 */
+
+/* USER CODE BEGIN 1 */
+
+/* USER CODE END 1 */

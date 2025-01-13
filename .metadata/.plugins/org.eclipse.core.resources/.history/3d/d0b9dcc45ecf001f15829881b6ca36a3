@@ -1,0 +1,66 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file    ux_host_cdc_acm.c
+  * @author  MCD Application Team
+  * @brief   USBX Host CDC ACM applicative source file
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2020-2021 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Includes ------------------------------------------------------------------*/
+#include "ux_host_cdc_acm.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "main.h"
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define APP_RX_DATA_SIZE                         1024
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+/* USER CODE BEGIN PV */
+extern UX_HOST_CLASS_CDC_ACM    *cdc_acm;
+extern TX_EVENT_FLAGS_GROUP     cdc_acm_eventflag;
+extern TX_MUTEX                                cdc_acm_uart_mutex;
+UX_HOST_CLASS_CDC_ACM_RECEPTION cdc_acm_reception;
+uint8_t                                                            UserRxBuffer[APP_RX_DATA_SIZE];
+ULONG                           block_reception_count;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
+/* USER CODE BEGIN 1 */
+
+/* USER CODE END 1 */

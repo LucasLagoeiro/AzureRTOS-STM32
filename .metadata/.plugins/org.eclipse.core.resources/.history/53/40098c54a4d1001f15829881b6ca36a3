@@ -1,0 +1,4 @@
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Middlewares/ST/usbx/common/usbx_stm32_host_controllers/ux_hcd_stm32_callback.c:74:6:HAL_HCD_Connect_Callback	1
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Middlewares/ST/usbx/common/usbx_stm32_host_controllers/ux_hcd_stm32_callback.c:137:6:HAL_HCD_Disconnect_Callback	1
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Middlewares/ST/usbx/common/usbx_stm32_host_controllers/ux_hcd_stm32_callback.c:207:6:HAL_HCD_HC_NotifyURBChange_Callback	31
+C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Middlewares/ST/usbx/common/usbx_stm32_host_controllers/ux_hcd_stm32_callback.c:482:6:HAL_HCD_SOF_Callback	2

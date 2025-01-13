@@ -1,0 +1,135 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file    ux_host_msc.h
+  * @author  MCD Application Team
+  * @brief   USBX Host MSC applicative header file
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2020-2021 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __UX_HOST_MSC_H__
+#define __UX_HOST_MSC_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* Includes ------------------------------------------------------------------*/
+#include "ux_api.h"
+#include "ux_host_class_storage.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* Exported types ------------------------------------------------------------*/
+/* USER CODE BEGIN ET */
+
+/* USER CODE END ET */
+
+/* Exported constants --------------------------------------------------------*/
+/* USER CODE BEGIN EC */
+
+/* USER CODE END EC */
+
+/* Exported macro ------------------------------------------------------------*/
+/* USER CODE BEGIN EM */
+
+/* USER CODE END EM */
+
+/* Exported functions prototypes ---------------------------------------------*/
+
+/* USER CODE BEGIN EFP */
+VOID msc_process_thread_entry(ULONG thread_input);
+/* USER CODE END EFP */
+
+/* Private defines -----------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define STORAGE_MEDIA   0x01
+/* USER CODE END PD */
+
+/* USER CODE BEGIN 1 */
+VOID msc_process_thread_entry(ULONG thread_input)
+{
+  ULONG storage_media_flag = 0;
+
+  while(1)
+  {
+    /* Wait until the requested flag STORAGE_MEDIA is received */
+    if (tx_event_flags_get(&ux_app_EventFlag, STORAGE_MEDIA, TX_OR_CLEAR,
+                           &storage_media_flag, TX_WAIT_FOREVER) != TX_SUCCESS)
+    {
+      Error_Handler();
+    }
+
+    /* Start file operations once the media is connected */
+    if (media != NULL)
+    {
+      /* Start File operations */
+      USBH_UsrLog("\n*** Start Files operations ***\n");
+
+      /* Create a file and check status */
+      if (App_File_Create(media) == UX_SUCCESS)
+      {
+        USBH_UsrLog("File TEST.TXT Created \n");
+
+        /* Start write File Operation */
+        USBH_UsrLog("Write Process ...... \n");
+
+        /* Check status */
+        if (App_File_Write(media) == UX_SUCCESS)
+        {
+          USBH_UsrLog("Write Process Success \n");
+
+          /* Start Read File Operation and comparison operation */
+          USBH_UsrLog("Read Process  ...... \n");
+
+          /* Check Read Operation */
+          if (App_File_Read(media) == UX_SUCCESS)
+          {
+            USBH_UsrLog("Read Process Success  \n");
+            USBH_UsrLog("File Closed \n");
+            USBH_UsrLog("*** End Files operations ***\n")
+          }
+          else
+          {
+            USBH_ErrLog("!! Read Process Fail !! \n");
+          }
+        }
+        else
+        {
+          USBH_ErrLog("!! Write Process Fail !! ");
+        }
+
+      }
+      else
+      {
+        USBH_ErrLog(" !! Could Not Create TEST.TXT File !! ");
+      }
+
+    }
+    else
+    {
+      tx_thread_sleep(MS_TO_TICK(10));
+    }
+  }
+}
+
+/* USER CODE END 1 */
+
+#ifdef __cplusplus
+}
+#endif
+#endif  /* __UX_HOST_MSC_H__ */

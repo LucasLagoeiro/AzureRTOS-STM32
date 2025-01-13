@@ -1,0 +1,10 @@
+12:52:34 **** Incremental Build of configuration Debug for project Ux_Device_CDC_ACM ****
+make -j8 all 
+arm-none-eabi-size  Ux_Device_CDC_ACM.elf 
+   text	   data	    bss	    dec	    hex	filename
+  88368	    115	  22636	 111119	  1b20f	Ux_Device_CDC_ACM.elf
+Finished building: default.size.stdout
+ 
+
+12:52:40 Build Finished. 0 errors, 0 warnings. (took 6s.168ms)
+

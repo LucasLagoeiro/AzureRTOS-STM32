@@ -1,0 +1,2 @@
+Application/User/Core/tx_initialize_low_level.o: \
+ C:/Users/lagoeirl/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AZRTOS-H7/3.3.0/Projects/STM32H735G-DK/Applications/USBX/Ux_Host_MSC/Core/Src/tx_initialize_low_level.S

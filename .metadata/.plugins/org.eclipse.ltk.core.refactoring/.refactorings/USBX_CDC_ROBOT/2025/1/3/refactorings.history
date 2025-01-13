@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;USBX_CDC_ROBOT/USBX_CDC.ioc&apos; to &apos;USBX_CDC_ROBOT.ioc&apos;" description="Rename resource &apos;USBX_CDC.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="USBX_CDC.ioc" name="USBX_CDC_ROBOT.ioc" stamp="1736782428746" updateReferences="true"/>
+</session>
